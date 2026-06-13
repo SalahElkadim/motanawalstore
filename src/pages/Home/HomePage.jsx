@@ -44,7 +44,7 @@ const HomePage = () => {
       <div
         className="flex items-center justify-center text-center px-4"
         style={{
-          minHeight: 480,
+          minHeight: 520,
           background:
             "linear-gradient(135deg, #6366f1 0%, #4f46e5 60%, #3730a3 100%)",
           position: "relative",
@@ -74,11 +74,45 @@ const HomePage = () => {
             background: "rgba(255,255,255,0.06)",
           }}
         />
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: 380,
+            height: 380,
+            borderRadius: "50%",
+            background: "rgba(255,255,255,0.04)",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
 
-        <div style={{ position: "relative" }}>
-          <Title style={{ color: "#fff", fontSize: 42, marginBottom: 16 }}>
-            أهلاً بك في {process.env.REACT_APP_NAME || "متجري"}
-          </Title>
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <div className="flex justify-center" style={{ marginBottom: 28 }}>
+            <div
+              style={{
+                background: "rgba(255,255,255,0.97)",
+                borderRadius: 24,
+                padding: "18px 32px",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                src="/logo.png"
+                alt={process.env.REACT_APP_NAME || "متجري"}
+                style={{
+                  height: 64,
+                  maxWidth: 220,
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
+            </div>
+          </div>
+
           <Text
             style={{
               color: "rgba(255,255,255,0.85)",
@@ -90,7 +124,17 @@ const HomePage = () => {
             اكتشف أفضل المنتجات بأفضل الأسعار
           </Text>
           <Link to="/products">
-            <Button type="default" size="large" icon={<ArrowLeftOutlined />}>
+            <Button
+              type="default"
+              size="large"
+              icon={<ArrowLeftOutlined />}
+              style={{
+                fontWeight: 600,
+                paddingInline: 28,
+                height: 48,
+                borderRadius: 12,
+              }}
+            >
               تسوق الآن
             </Button>
           </Link>
@@ -100,10 +144,12 @@ const HomePage = () => {
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Categories */}
         {categories.length > 0 && (
-          <section className="mb-12">
-            <Title level={3} className="mb-6">
-              تسوق حسب الفئة
-            </Title>
+          <section className="mb-14">
+            <div className="flex items-center justify-between mb-6">
+              <Title level={3} style={{ margin: 0 }}>
+                تسوق حسب الفئة
+              </Title>
+            </div>
             <Row gutter={[16, 16]}>
               {categories.map((cat) => (
                 <Col key={cat.id} xs={12} sm={8} md={6} lg={4}>
@@ -111,13 +157,29 @@ const HomePage = () => {
                     to={`/products?category=${cat.id}`}
                     className="no-underline"
                   >
-                    <div className="text-center p-4 bg-white rounded-xl border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all cursor-pointer">
-                      {cat.image && (
+                    <div
+                      className="text-center p-4 bg-white rounded-2xl border border-slate-100 hover:border-indigo-300 hover:shadow-lg transition-all cursor-pointer"
+                      style={{ height: "100%" }}
+                    >
+                      {cat.image ? (
                         <img
                           src={cat.image}
                           alt={cat.name}
-                          className="w-12 h-12 object-cover rounded-full mx-auto mb-2"
+                          className="w-14 h-14 object-cover rounded-full mx-auto mb-3"
                         />
+                      ) : (
+                        <div
+                          className="w-14 h-14 rounded-full mx-auto mb-3 flex items-center justify-center"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, #6366f1, #4f46e5)",
+                            color: "#fff",
+                            fontWeight: 700,
+                            fontSize: 18,
+                          }}
+                        >
+                          {cat.name?.charAt(0)}
+                        </div>
                       )}
                       <Text strong className="text-sm">
                         {cat.name}
