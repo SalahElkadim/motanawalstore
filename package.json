@@ -1,0 +1,49 @@
+{
+  "name": "store-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^5.3.0",
+    "antd": "^5.14.0",
+    "axios": "^1.6.7",
+    "dayjs": "^1.11.10",
+    "mobx": "^6.12.0",
+    "mobx-react-lite": "^4.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-facebook-pixel": "^1.0.4",
+    "react-router-dom": "^6.30.3",
+    "react-scripts": "5.0.1",
+    "serve": "^14.2.5",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "cross-env": "^10.1.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "serve -s build",
+    "build": "cross-env CI=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  }
+}
