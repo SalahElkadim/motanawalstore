@@ -49,11 +49,12 @@ const Navbar = observer(() => {
     >
       <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
         {/* Logo */}
-        <Link
-          to="/"
-          className="text-2xl font-bold text-indigo-600 no-underline"
-        >
-          {process.env.REACT_APP_NAME || "متجري"}
+        <Link to="/" className="no-underline">
+          <img
+            src="/logo.png"
+            alt={process.env.REACT_APP_NAME || "متجري"}
+            style={{ height: 40, objectFit: "contain" }}
+          />
         </Link>
 
         {/* Nav Links */}
