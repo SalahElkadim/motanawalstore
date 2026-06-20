@@ -1,6 +1,6 @@
 import ReactPixel from "react-facebook-pixel";
 
-const PIXEL_ID = "";
+const PIXEL_ID = "1275880521022144";
 
 export const initPixel = () => {
   ReactPixel.init(
